@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=<% settings.charset %>" />
+<title>TwitterDancer</title>
+
+</head>
+<body>
+<!-- Header -->
+<div class="jumbotron">
+  <h1>Twitter Dancer!</h1>
+  <p>Twitter Dancer is a Twitter API based application implemented using the Dancer web application framework. The Dancer framework is written in Perl and inspired by Ruby's Sinatra.</p>
+  <p><a class="btn btn-primary btn-lg" href="http://perldancer.org" role="button">Learn more</a>
+</div><!-- /jumbotron -->
+
+<div class="content">
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a href="#tweets" aria-controls="recentTweets" role="tab" data-toggle="tab">Fetch Recent Tweets</a>
+        </li>
+        <li role="presentation"><a href="#intersection" aria-controls="intersection" role="tab" data-toggle="tab">Two Users Intersection</a>
+        </li>
+        <li role="presentation"><a href="#about" aria-controls="about" role="tab" data-toggle="tab">About</a>
+        </li>
+    </ul>
+    
+    <!-- Tab panes -->
+    <div class="tab-content">
+        
+        <!-- Single User Recent Tweets Tab pane -->
+        <div role="tabpanel" class="tab-pane fade in active" id="tweets">
+            <br>
+            <form role="form" class="getTweets" method="GET" action="recentTweets/" id="recent-tweets">
+                <div class="form">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">@</span>
+                            <input type="text" class="form-control" placeholder="username" aria-describedby="username" id="username" name="username">
+                        </div><!-- /input-group -->
+                    </div><!-- /form-group -->
+                    <div class="btn-group">
+                        <button class="btn btn-default" type="submit">Go!</button>
+                        <button class="btn btn-danger" type="reset">Reset!</button>
+                    </div><!-- /btn-group -->
+                </div>
+                <br>
+                <!-- Output -->
+                <div class="output">
+                    <div class="recentTweets"></div>
+                </div>
+                <div id="user-recent-tweet" class="hidden">
+                    <!-- Single Tweet -->
+                    <div class="alert alert-success" role="alert">
+                        <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+                            <p>{text}</p>
+                    </div><!-- /Single Tweet -->
+                </div><!-- /Output -->
+            </form>
+            <br>
+        </div>
+        
+        <!-- Query Two Users Common Following Twitter Users - Tab pane -->
+        <div role="tabpanel" class="tab-pane fade" id="intersection">
+            <br>
+            <form role="form" class="getIntersection" action="intersection">
+                <div class="form">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">@</span>
+                            <input type="text" class="form-control" placeholder="First Username" name="username[]"></input>
+                        </div><!-- /input-group -->
+                    </div><!-- /form-group -->
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">@</span>
+                            <input type="text" class="form-control" placeholder="Second Username" name="username[]"></input>
+                        </div><!-- /input-group -->
+                    </div><!-- /form-group -->
+                    <div class="btn-group">
+                        <button class="btn btn-default" type="submit">Go!</button>
+                        <button class="btn btn-danger" type="reset">Reset!</button>
+                    </div><!-- /btn-group -->
+                </div>
+                <br>
+                    <!-- Output -->
+                <div class="results">
+                    <div class="intersection"></div>
+                </div>
+                <div id="common-following" class="hidden">
+                    <div class="alert alert-success" role="alert">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        {screen_name}
+                    </div>
+                </div><!-- /Output -->
+            </form>
+            <br>
+        </div>
+        
+        <!-- About Tab pane -->
+        <div role="tabpanel" class="tab-pane fade" id="about">
+            <br>
+            <p><b>Tools used in this implementation:</b></p>
+            <p><a href="http://perldancer.org"><b>Dancer</b></a> is a simple but powerful web application framework for Perl.</p>
+            <p><a href="https://dev.twitter.com"><b>Twitter REST APIs</b></a> provides programmatic access to read and write Twitter data. Author a new Tweet, read author profile and follower data, and more. The REST API identifies Twitter applications and users using OAuth; responses are available in JSON.</p>
+            <p><a href="http://getbootstrap.com"><b>Bootstrap</b></a> is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.</p>
+            <p><a href="http://redis.io"><b>Redis</b></a> is an open source, BSD licensed, advanced key-value cache and store. It is often referred to as a data structure server since keys can contain strings, hashes, lists, sets, sorted sets, bitmaps and hyperloglogs.</p>
+            <p><a href="http://jquery.com"><b>jQuery</b></a> is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.</p>
+            <p><a href="http://jqueryui.com"><b>jQuery UI</b></a> is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library.</p>
+        </div>
+        <br>
+    </div>
+</div>
+
+<div id="footer">
+Powered by <a href="http://perldancer.org/">Dancer</a> <% dancer_version %>
+</div>
+
+<!-- Grab jQuery from a CDN, fall back to local if necessary -->
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">/* <![CDATA[ */
+    !window.jQuery && document.write('<script type="text/javascript" src="<% request.uri_base %>/javascripts/jquery.min.js"><\/script>')
+/* ]]> */</script>
+
+<!-- Javascripts -->
+<script src="<% request.uri_base %>/jquery-ui-1.10.4/js/jquery-ui-1.10.4.min.js"></script>
+<script src="<% request.uri_base %>/javascripts/getTweets.js"></script>
+<script src="<% request.uri_base %>/javascripts/getIntersection.js"></script>
+<script src="<% request.uri_base %>/dist/js/bootstrap.min.js"></script>
+
+<!-- Styles -->
+<link rel="stylesheet" href="<% request.uri_base %>/dist/css/bootstrap.min.css" />

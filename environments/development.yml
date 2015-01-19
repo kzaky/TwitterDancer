@@ -1,0 +1,33 @@
+# configuration file for development environment
+
+# the logger engine to use
+# console: log messages to STDOUT (your console where you started the
+#          application server)
+# file:    log message to a file in log/
+logger: "console"
+
+# the log level for this environment
+# core is the lowest, it shows Dancer2's core log messages as well as yours
+# (debug, info, warning and error)
+log: "core"
+
+# should Dancer2 consider warnings as critical errors?
+warnings: 1
+
+# should Dancer2 show a stacktrace when an error is caught?
+# if set to yes, public/500.html will be ignored and either
+# views/500.tt or a default error template will be used.
+show_errors: 1
+
+# print the banner
+startup_info: 1
+
+# Twitter API configuration
+consumer_key: "pfBLBARR66seoxo9YtKfYieHu"
+consumer_secret: "klIfMf7mn06WSGmqiBqiQNmCoirSQxQ8I5fBlFLBPRkZwwP3WB"
+access_token: "245149316-02iCzmcYcMAoepzLO1RysmdJdBhjZrqtTcDQgd5P"
+access_token_secret: "llJR4vsThm10jzB0rmqACLTla4Oqld4PNe1d5SkgJgnC7"
+
+# Redis Server configuration (Required for Intersection feature only)
+redis_server: "mummichog.redistogo.com:10545"
+redis_password: "3305d9a0a2d24c2bdef239a8b041121c"

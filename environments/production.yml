@@ -1,0 +1,26 @@
+# configuration file for production environment
+
+# only log warning and error messsages
+log: "warning"
+
+# log message to a file in logs/
+logger: "file"
+
+# don't consider warnings critical
+warnings: 0
+
+# hide errors
+show_errors: 0
+
+# disable server tokens in production environments
+no_server_token: 1
+
+# Twitter API config
+twitter_consumer_key: "pfBLBARR66seoxo9YtKfYieHu"
+twitter_consumer_secret: "klIfMf7mn06WSGmqiBqiQNmCoirSQxQ8I5fBlFLBPRkZwwP3WB"
+twitter_access_token: "245149316-02iCzmcYcMAoepzLO1RysmdJdBhjZrqtTcDQgd5P"
+twitter_access_token_secret: "llJR4vsThm10jzB0rmqACLTla4Oqld4PNe1d5SkgJgnC7"
+
+# Redis Server config
+redis_server: "redis://redistogo:3305d9a0a2d24c2bdef239a8b041121c@mummichog.redistogo.com:10545/"
+redis_name: "TwitterDancer"
