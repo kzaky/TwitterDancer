@@ -23,11 +23,11 @@ show_errors: 1
 startup_info: 1
 
 # Twitter API configuration
-consumer_key: "pfBLBARR66seoxo9YtKfYieHu"
-consumer_secret: "klIfMf7mn06WSGmqiBqiQNmCoirSQxQ8I5fBlFLBPRkZwwP3WB"
-access_token: "245149316-02iCzmcYcMAoepzLO1RysmdJdBhjZrqtTcDQgd5P"
-access_token_secret: "llJR4vsThm10jzB0rmqACLTla4Oqld4PNe1d5SkgJgnC7"
+consumer_key: ""
+consumer_secret: ""
+access_token: ""
+access_token_secret: ""
 
 # Redis Server configuration (Required for Intersection feature only)
-redis_server: "mummichog.redistogo.com:10545"
-redis_password: "3305d9a0a2d24c2bdef239a8b041121c"
+redis_server: ""
+redis_password: ""

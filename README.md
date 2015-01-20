@@ -110,7 +110,11 @@ git commit -m "Initial version"
 heroku create -s cedar --buildpack http://github.com/judofyr/perloku.git
 git push heroku master
 ```
+## Screenshots
 
+![TwitterDancer](/public/images/screenshots/app.jpg)
+![User's Recent Tweets](/public/images/screenshots/recent.jpg)
+![Two Users Intersection](/public/images/screenshots/intersection.jpg)
 ####Enjoy!
 
 [jQuery]:http://jquery.com
