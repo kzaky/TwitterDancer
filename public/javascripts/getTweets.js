@@ -81,13 +81,12 @@
             });
         },
 
-        // Returns the action url based on the username entered
         _makePath: function () {
             var url              = this.element.attr( 'action' ),
                 username         = this.element.find( 'input#username' ).val(),
-                hasTrailingSlash = url.substring( url.length - 1 ) === '/';
+                slash = url.substring( url.length - 1 ) === '/';
 
-            return url + (hasTrailingSlash ? '' : '/') + username;
+            return url + (slash ? '' : '/') + username;
         },
     });
 
