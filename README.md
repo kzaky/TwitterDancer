@@ -112,9 +112,9 @@ git push heroku master
 ```
 ## Screenshots
 
-![TwitterDancer](/public/images/screenshots/app.jpg)
-![User's Recent Tweets](/public/images/screenshots/recent.jpg)
-![Two Users Intersection](/public/images/screenshots/intersection.jpg)
+![TwitterDancer](/public/images/screenshots/app.png)
+![User's Recent Tweets](/public/images/screenshots/recent.png)
+![Two Users Intersection](/public/images/screenshots/intersection.png)
 ####Enjoy!
 
 [jQuery]:http://jquery.com
