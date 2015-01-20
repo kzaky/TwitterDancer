@@ -28,7 +28,7 @@ These steps would lead you to run the application locally or even complete a  he
 Clone the git repository:
 
 ```git
-$ git clone https://github.com/libgit2/libgit2
+$ git clone https://github.com/kzaky/TwitterDancer.git
 
 ```
 
@@ -110,11 +110,6 @@ git commit -m "Initial version"
 heroku create -s cedar --buildpack http://github.com/judofyr/perloku.git
 git push heroku master
 ```
-
-## Screenshots
-
-![User's Recent Tweets](/public/images/screenshots/recent.jpg)
-![Two Users Intersection](/public/images/screenshots/intersection.jpg)
 
 ####Enjoy!
 

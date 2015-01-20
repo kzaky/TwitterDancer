@@ -45,7 +45,6 @@
                         <button class="btn btn-danger" type="reset">Reset!</button>
                     </div><!-- /btn-group -->
                 </div>
-                <br>
                 <!-- Output -->
                 <div class="output">
                     <div class="recentTweets"></div>
@@ -53,8 +52,8 @@
                 <div id="user-recent-tweet" class="hidden">
                     <!-- Single Tweet -->
                     <div class="alert alert-success" role="alert">
-                        <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
-                            <p>{text}</p>
+                        <span class="glyphicon glyphicon-send" aria-hidden="true">{text}
+                        </span>
                     </div><!-- /Single Tweet -->
                 </div><!-- /Output -->
             </form>
@@ -83,15 +82,14 @@
                         <button class="btn btn-danger" type="reset">Reset!</button>
                     </div><!-- /btn-group -->
                 </div>
-                <br>
                     <!-- Output -->
                 <div class="results">
                     <div class="intersection"></div>
                 </div>
                 <div id="common-following" class="hidden">
                     <div class="alert alert-success" role="alert">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                        {screen_name}
+                        <span class="glyphicon glyphicon-user" aria-hidden="true">{screen_name}</span>
+                        
                     </div>
                 </div><!-- /Output -->
             </form>
