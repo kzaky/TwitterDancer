@@ -21,6 +21,6 @@ twitter_consumer_secret: "klIfMf7mn06WSGmqiBqiQNmCoirSQxQ8I5fBlFLBPRkZwwP3WB"
 twitter_access_token: "245149316-02iCzmcYcMAoepzLO1RysmdJdBhjZrqtTcDQgd5P"
 twitter_access_token_secret: "llJR4vsThm10jzB0rmqACLTla4Oqld4PNe1d5SkgJgnC7"
 
-# Redis Server config
-redis_server: "redis://redistogo:3305d9a0a2d24c2bdef239a8b041121c@mummichog.redistogo.com:10545/"
-redis_name: "TwitterDancer"
+# Redis Server configuration (Required for Intersection feature only)
+redis_server: "mummichog.redistogo.com:10545"
+redis_password: "3305d9a0a2d24c2bdef239a8b041121c"

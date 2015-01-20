@@ -17,49 +17,76 @@
     "use strict";
 
     $.widget('twitterdancer.recentTweets', {
-        request: null,
-        initTweet: null,
+        _request: null,
+        _initTweet: null,
 
-        create: function () {
+        // Reset
+        _reset: function () {
+            if ( this._request !== null ) {
+                this._request.abort();
+                this._request = null;
+            }
+
+            this.element.find( '.recentTweets' ).html( null ).removeClass( 'hidden' );
+        },
+
+        // Handle Submit and Reset
+        _create: function () {
             var base = this;
-            this.initTweet = $( '#user-recent-tweet' ).html();
+
+            this._initTweet = $( '#user-recent-tweet' ).html();
+
             base.element.submit(function ( e ) {
                 e.preventDefault();
-                base.fetch();
+                base._fetchTweets();
             });
+
+            base.element.bind('reset', function ( e ) {
+                base._reset();
+            });
+
+            base._reset();
+
             return base;
         },
 
-        fetch: function () {
+        _fetchTweets: function () {
             var base      = this,
-                URL = base.makePath();
-                base.request = $.ajax({
+                URL = base._makePath();
+
+                base._request = $.ajax({
                     url: URL,
                     type: 'GET',
                     dataType: 'JSON',
+                    beforeSend: function () {
+                        base._reset();
                     },
                 });
-                base.request.done(function ( recentTweets ) {
-                    base.display( recentTweets );
+                base._request.done(function ( recentTweets ) {
+                    base._display( recentTweets );
                 });
             return base;
         },
 
-        display: function ( recentTweets ) {
+        _display: function ( recentTweets ) {
             var base      = this,
                 allTweets = base.element.find( '.recentTweets' ),
                 tweet;
+
             $.each( recentTweets, function ( i, recentTweet ) {
-                tweet = base.initTweet;
+                tweet = base._initTweet;
                 tweet = tweet.replace( '{text}', recentTweet.text );
+
                 allTweets.append( tweet );
             });
         },
-        
-        makePath: function () {
+
+        // Returns the action url based on the username entered
+        _makePath: function () {
             var url              = this.element.attr( 'action' ),
                 username         = this.element.find( 'input#username' ).val(),
                 hasTrailingSlash = url.substring( url.length - 1 ) === '/';
+
             return url + (hasTrailingSlash ? '' : '/') + username;
         },
     });

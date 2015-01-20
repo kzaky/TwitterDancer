@@ -129,3 +129,5 @@ Powered by <a href="http://perldancer.org/">Dancer</a> <% dancer_version %>
 
 <!-- Styles -->
 <link rel="stylesheet" href="<% request.uri_base %>/dist/css/bootstrap.min.css" />
+</body>
+</html>

@@ -17,53 +17,57 @@
     "use strict";
 
     $.widget('twitterdancer.intersection', {
-        request: null,
-        initialUser: null,
+        _request: null,
+        _initialUser: null,
 
-        create: function () {
+        _create: function () {
             var base = this;
-            base.initialUser = this.element.find( '#common-following' ).html();
+
+            base._initialUser = this.element.find( '#common-following' ).html();
+
             base.element.submit(function ( e ) {
                 e.preventDefault();
-                base.print();
+                base._print();
             });
         },
 
-        print: function () {
+        _print: function () {
             var base      = this,
-                actionURL = base.makePath(),
+                actionURL = base._makePath(),
                 getRequest, usersIntersection;
+            
             usersIntersection = this.element.find( '.intersection' );
             getRequest = $.ajax(actionURL, { type: 'GET', dataType: 'JSON', beforeSend: function () {
                 usersIntersection.html( null );
                 }});
+
             getRequest.done(function ( users ) {
-                base.list (users)
+                var intersection = users[0];
+                for ( var i = 0; i < intersection.length; i++ ) {
+                    var user = intersection[i];
+                    base._appendIntersection( user );
+                }
             });
             return base;
         },
 
-        list: function () {
-            var intersection = users[0];
-                for ( var i = 0; i < intersection.length; i++ ) {
-                    var user = intersection[i];
-                    base.appendIntersection( user );
-                }
-        },
-
-        appendIntersection: function ( user ) {
-            var twitterUser   = this.initialUser,
+        _appendIntersection: function ( user ) {
+            var twitterUser   = this._initialUser,
                 usersIntersection = this.element.find( '.intersection' );
+
             twitterUser = twitterUser.replace( '{screen_name}', user.screen_name );
+
             usersIntersection.append( twitterUser );
         },
 
-        makePath: function () {
+        _makePath: function () {
             var URL       = this.element.attr( 'action' ),
                 usernames = [];
+
             this.element.find( 'input' ).each(function ( i, username ) {
                 usernames.push( $( username ).val() );
             });
+
             return URL + '/' + usernames.join( '/' );
         },
     });
